@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PRIV_INTERFACE", schema = "C##HRMGR", catalog = "")
+@Table(name = "PRIV_INTERFACE", schema = "C##HRMGR")
 public class PrivInterfaceEntity {
     private Short interfaceId;
     private Long privilegeId;

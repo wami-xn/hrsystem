@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PRIV_GROUP_PRIV", schema = "C##HRMGR", catalog = "")
+@Table(name = "PRIV_GROUP_PRIV", schema = "C##HRMGR")
 public class PrivGroupPrivEntity {
     private Long flowId;
     private Long groupId;

@@ -25,8 +25,12 @@
         </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:pointcut id="txPointcut" expression="execution(* com.wami.project.hrsystem.core.dao.LoginDaoImpl.*(..))"/>
+        <aop:pointcut id="txPointcut" expression="execution(* com.wami.project.hrsystem.core.dao.impls.LoginDaoImpl.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+    <aop:config>
+        <aop:pointcut id="txPointcut2" expression="execution(* com.wami.project.hrsystem.core.dao.impls.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut2"/>
     </aop:config>
     <context:component-scan base-package="com.wami.project.hrsystem.core.*"/>
 </beans>
