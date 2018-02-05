@@ -14,16 +14,19 @@
     <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="sessionFactory">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
-        <property name="mappingLocations" value="classpath:"/>
     </bean>
     <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="transactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <tx:advice id="txAdvice">
-
+        <tx:attributes>
+            <tx:method name="*"/>
+            <!--<tx:method name="purchase" propagation="REQUIRES_NEW"/>-->
+        </tx:attributes>
     </tx:advice>
     <aop:config>
-        <aop:pointcut id="txPointcut" expression=""/>
+        <aop:pointcut id="txPointcut" expression="execution(* com.wami.project.hrsystem.core.dao.LoginDaoImpl.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
+    <context:component-scan base-package="com.wami.project.hrsystem.core.*"/>
 </beans>

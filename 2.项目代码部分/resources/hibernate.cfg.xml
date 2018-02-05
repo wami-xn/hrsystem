@@ -4,9 +4,18 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="connection.url">jdbc:oracle:thin:@192.168.1.110:1521:ORACLE</property>
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivUsersEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivGroupDEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivGroupMEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivGroupPrivEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivInterfaceEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivModelEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivPrivLEntity"/>
     </session-factory>
 </hibernate-configuration>
