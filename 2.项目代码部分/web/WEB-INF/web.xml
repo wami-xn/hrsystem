@@ -22,7 +22,7 @@
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <listener>
+    <!--<listener>
         <listener-class> com.test. listener.WebContextListener</listener-class>
-    </listener>
+    </listener>-->
 </web-app>

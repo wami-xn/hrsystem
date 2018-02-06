@@ -1,5 +1,6 @@
 package com.wami.project.hrsystem.core.utils.test;
 
+import com.wami.project.hrsystem.core.utils.Md5Handler;
 import org.junit.Test;
 
 import java.util.Random;
@@ -17,5 +18,9 @@ public class TestMd5 {
             }
         }
         System.out.println(sBuilder);
+    }
+    @Test
+    public void testMd5Salt(){
+        System.out.println( Md5Handler.getSaltMD5("SYSTEM"));
     }
 }

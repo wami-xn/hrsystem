@@ -12,5 +12,5 @@ public interface PrivilegeDao extends AbstractDao<PrivGroupDEntity> {
      public List<Long> getAllPrivilege(PrivUsersEntity privUsersEntity);
      public List<PrivModelEntity> getAccessAbleModel(List<Long> privileges);
      public List<PrivInterfaceEntity> getAccessAbleInterface(List<Long> privileges);
-     public Map<Long, String> getPrivMap();
+     public Map<String, Long> getPrivMap();
 }

@@ -12,9 +12,11 @@
     <title>Login</title>
 </head>
 <body>
+<s:debug/>
 <s:form action="core_login.action">
-    <s:textarea label="user"/>
-    <s:password label="passwd"/>
+    <s:param name="error" value="[0]['errorMessage']"/>
+    <s:textfield label="user" name="user"/>
+    <s:password label="passwd" name="passwd"/>
     <s:submit/>
 </s:form>
 </body>

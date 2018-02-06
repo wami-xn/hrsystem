@@ -61,6 +61,8 @@ public class LoginDaoImpl extends DaoImpl<PrivUsersEntity> implements LoginDao {
         String passwd = (String) getSession()
                 .createQuery(hql)
                 .setParameter("USERNAME", usersEntity.getUname()).uniqueResult();
-        return Md5Handler.getSaltverifyMD5(usersEntity.getUpwd(), passwd);
+        System.out.println(passwd);
+        System.out.println(usersEntity.getUpwd());
+        return passwd != null && Md5Handler.getSaltverifyMD5(usersEntity.getUpwd(), passwd);
     }
 }
