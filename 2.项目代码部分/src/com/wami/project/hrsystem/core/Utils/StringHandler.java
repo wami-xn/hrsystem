@@ -1,4 +1,4 @@
-package com.wami.project.hrsystem.core.Utils;
+package com.wami.project.hrsystem.core.utils;
 
 import java.util.List;
 

@@ -4,9 +4,9 @@
     <root id="1"/>
     <schema id="2" parent="1" name="C##HRMGR">
       <ObjectId>106</ObjectId>
-      <IntrospectionTimestamp>2018-02-05.17:58:42</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2018-02-06.21:33:09</IntrospectionTimestamp>
       <CreatedTimestamp>2018-02-05.16:58:21</CreatedTimestamp>
-      <ModifiedTimestamp>2018-02-05.17:04:08</ModifiedTimestamp>
+      <ModifiedTimestamp>2018-02-06.21:33:07</ModifiedTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -121,35 +121,203 @@
     <schema id="39" parent="1" name="XS$NULL">
       <ObjectId>2147483638</ObjectId>
     </schema>
-    <sequence id="40" parent="2" name="PRIV_USERS_ID_SEQ">
-      <ObjectId>73807</ObjectId>
-      <CreatedTimestamp>2018-02-05.17:02:18</CreatedTimestamp>
-      <ModifiedTimestamp>2018-02-05.17:02:18</ModifiedTimestamp>
-      <SequenceIdentity>1</SequenceIdentity>
-      <CacheSize>-2147483648</CacheSize>
+    <sequence id="40" parent="2" name="PRIV_GROUP_D_ID_SEQ">
+      <ObjectId>73818</ObjectId>
+      <CreatedTimestamp>2018-02-05.22:39:45</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.22:39:45</ModifiedTimestamp>
+      <SequenceIdentity>1+200000000</SequenceIdentity>
     </sequence>
-    <table id="41" parent="2" name="PRIV_USERS">
-      <ObjectId>73805</ObjectId>
-      <CreatedTimestamp>2018-02-05.16:58:21</CreatedTimestamp>
-      <ModifiedTimestamp>2018-02-05.16:58:21</ModifiedTimestamp>
+    <sequence id="41" parent="2" name="PRIV_GROUP_M_ID_SEQ">
+      <ObjectId>73819</ObjectId>
+      <CreatedTimestamp>2018-02-05.22:39:45</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.22:39:45</ModifiedTimestamp>
+      <SequenceIdentity>1+200000000</SequenceIdentity>
+    </sequence>
+    <sequence id="42" parent="2" name="PRIV_USERS_ID_SEQ">
+      <ObjectId>73809</ObjectId>
+      <CreatedTimestamp>2018-02-05.21:54:02</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.21:54:02</ModifiedTimestamp>
+      <SequenceIdentity>1+50</SequenceIdentity>
+    </sequence>
+    <table id="43" parent="2" name="PRIV_GROUP_D">
+      <ObjectId>73812</ObjectId>
+      <CreatedTimestamp>2018-02-05.22:10:04</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.23:24:19</ModifiedTimestamp>
       <TemporaryPreserve>1</TemporaryPreserve>
     </table>
-    <column id="42" parent="41" name="USER_ID">
+    <table id="44" parent="2" name="PRIV_GROUP_M">
+      <ObjectId>73810</ObjectId>
+      <CreatedTimestamp>2018-02-05.22:09:54</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.22:09:54</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="45" parent="2" name="PRIV_GROUP_PRIV">
+      <ObjectId>73817</ObjectId>
+      <CreatedTimestamp>2018-02-05.22:33:59</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.22:33:59</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="46" parent="2" name="PRIV_INTERFACE">
+      <ObjectId>73815</ObjectId>
+      <CreatedTimestamp>2018-02-05.22:33:59</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-06.21:33:07</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="47" parent="2" name="PRIV_MODEL">
+      <ObjectId>73814</ObjectId>
+      <CreatedTimestamp>2018-02-05.22:33:58</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.22:33:58</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="48" parent="2" name="PRIV_PRIV_L">
+      <ObjectId>73816</ObjectId>
+      <CreatedTimestamp>2018-02-05.22:33:59</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.22:33:59</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <table id="49" parent="2" name="PRIV_USERS">
+      <ObjectId>73805</ObjectId>
+      <CreatedTimestamp>2018-02-05.16:58:21</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-06.18:07:32</ModifiedTimestamp>
+      <TemporaryPreserve>1</TemporaryPreserve>
+    </table>
+    <column id="50" parent="43" name="FLOW_ID">
       <Position>1</Position>
       <DataType>NUMBER(9)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="41" name="UNAME">
+    <column id="51" parent="43" name="GROUP_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(9)|0</DataType>
+    </column>
+    <column id="52" parent="43" name="USER_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(9)|0</DataType>
+    </column>
+    <index id="53" parent="43" name="SYS_C007423">
+      <ObjectId>73813</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-02-05.22:10:04</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.22:10:04</ModifiedTimestamp>
+      <TablespaceName>HRSYS</TablespaceName>
+      <ColNames>FLOW_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="54" parent="43" name="SYS_C007423">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-02-05.22:10:04</ModifiedTimestamp>
+      <ColNames>FLOW_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007423</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="55" parent="44" name="GROUP_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="56" parent="44" name="GROUP_NAME">
       <Position>2</Position>
       <DataType>VARCHAR2(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="44" parent="41" name="UPWD">
+    <index id="57" parent="44" name="SYS_C007422">
+      <ObjectId>73811</ObjectId>
+      <NameSurrogate>1</NameSurrogate>
+      <CreatedTimestamp>2018-02-05.22:09:54</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-05.22:09:54</ModifiedTimestamp>
+      <TablespaceName>HRSYS</TablespaceName>
+      <ColNames>GROUP_ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="58" parent="44" name="SYS_C007422">
+      <NameSurrogate>1</NameSurrogate>
+      <ModifiedTimestamp>2018-02-05.22:09:54</ModifiedTimestamp>
+      <ColNames>GROUP_ID</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>SYS_C007422</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="59" parent="45" name="FLOW_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(9)|0</DataType>
+    </column>
+    <column id="60" parent="45" name="GROUP_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(9)|0</DataType>
+    </column>
+    <column id="61" parent="45" name="PRIVILEGE_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(8)|0</DataType>
+    </column>
+    <column id="62" parent="46" name="INTERFACE_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(5)|0</DataType>
+    </column>
+    <column id="63" parent="46" name="PRIVILEGE_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(8)|0</DataType>
+    </column>
+    <column id="64" parent="46" name="MODEL_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(5)|0</DataType>
+    </column>
+    <column id="65" parent="46" name="INTERFACE_NAME">
+      <Position>4</Position>
+      <DataType>VARCHAR2(60)|0</DataType>
+    </column>
+    <column id="66" parent="46" name="ENABLE_FLAG">
+      <Position>5</Position>
+      <DataType>VARCHAR2(1)|0</DataType>
+    </column>
+    <column id="67" parent="46" name="INTERFACE_CODE">
+      <Position>6</Position>
+      <DataType>VARCHAR2(30)|0</DataType>
+    </column>
+    <column id="68" parent="47" name="MODEL_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(5)|0</DataType>
+    </column>
+    <column id="69" parent="47" name="PRIVILEGE_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(8)|0</DataType>
+    </column>
+    <column id="70" parent="47" name="MIDEL_NAME">
+      <Position>3</Position>
+      <DataType>VARCHAR2(50)|0</DataType>
+    </column>
+    <column id="71" parent="47" name="ENABLE_FLAG">
+      <Position>4</Position>
+      <DataType>VARCHAR2(1)|0</DataType>
+    </column>
+    <column id="72" parent="48" name="FLOW_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(9)|0</DataType>
+    </column>
+    <column id="73" parent="48" name="USER_ID">
+      <Position>2</Position>
+      <DataType>NUMBER(9)|0</DataType>
+    </column>
+    <column id="74" parent="48" name="PRIVILEGE_ID">
+      <Position>3</Position>
+      <DataType>NUMBER(8)|0</DataType>
+    </column>
+    <column id="75" parent="49" name="USER_ID">
+      <Position>1</Position>
+      <DataType>NUMBER(9)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="49" name="UNAME">
+      <Position>2</Position>
+      <DataType>VARCHAR2(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="77" parent="49" name="UPWD">
       <Position>3</Position>
       <DataType>VARCHAR2(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="45" parent="41" name="SYS_C007420">
+    <index id="78" parent="49" name="SYS_C007420">
       <ObjectId>73806</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2018-02-05.16:58:21</CreatedTimestamp>
@@ -158,7 +326,15 @@
       <ColNames>USER_ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="46" parent="41" name="SYS_C007420">
+    <index id="79" parent="49" name="PRIV_USERS_UNAME_PK">
+      <ObjectId>73914</ObjectId>
+      <CreatedTimestamp>2018-02-06.18:07:32</CreatedTimestamp>
+      <ModifiedTimestamp>2018-02-06.18:07:32</ModifiedTimestamp>
+      <TablespaceName>HRSYS</TablespaceName>
+      <ColNames>UNAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="80" parent="49" name="SYS_C007420">
       <NameSurrogate>1</NameSurrogate>
       <ModifiedTimestamp>2018-02-05.16:58:21</ModifiedTimestamp>
       <ColNames>USER_ID</ColNames>
@@ -166,14 +342,11 @@
       <UnderlyingIndexName>SYS_C007420</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <trigger id="47" parent="41" name="PRIV_USERS_INS_TRG">
-      <ObjectId>73808</ObjectId>
-      <DependsOnIds>73807,143</DependsOnIds>
-      <CreatedTimestamp>2018-02-05.17:04:08</CreatedTimestamp>
-      <ModifiedTimestamp>2018-02-05.17:04:08</ModifiedTimestamp>
-      <Events>I</Events>
-      <Turn>before-row</Turn>
-      <Condition>NEW.user_id IS NULL</Condition>
-    </trigger>
+    <key id="81" parent="49" name="PRIV_USERS_UNAME_PK">
+      <ModifiedTimestamp>2018-02-06.18:07:32</ModifiedTimestamp>
+      <ColNames>UNAME</ColNames>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <UnderlyingIndexName>PRIV_USERS_UNAME_PK</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

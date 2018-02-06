@@ -4,4 +4,38 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+    <!-- 不进行扫描的包，用，分割，被包含的包，将不会被扫描成为action -->
+    <!--<constant name="struts.convention.exclude.packages" value="com.sean.service" />-->
+    <!-- 进行扫描的根包，该包会被扫描成action -->
+
+    <constant name="struts.convention.action.packages" value="com.wami.project.hrsystem" />
+    <!-- 返回页面地址 -->
+    <constant name="struts.convention.result.path" value="/" />
+    <!-- 用于进行action查找的后缀 -->
+    <constant name="struts.convention.action.suffix" value="Action" />
+    <!--用于生成action名字时的分隔符，比如DemoCustAction会被映射成为demo_cust,同时用于形成返回文件，比如访问DemoAction，return的值为input，插件会去指定不睦下，查找demo_input.jsp文件 -->
+    <constant name="struts.convention.action.name.separator" value="_" />
+    <!-- 指定的包会被进行扫描 -->
+    <constant name="struts.convention.package.locators" value="action,actions,struts,struts2" />
+    <!-- 返回页面类型 -->
+    <!--<constant name="struts.convention.relative.result.types" value="" />-->
+    <!-- 开启动态调用函数，这个方法在struts2里面不推荐，可是在这里却可以实现动态方法的调用，不用自写action了 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <!-- 开发模式 -->
+    <constant name="struts.devMode" value="true" />
+    <package name="default" namespace="/" extends="struts-default">
+        <interceptors>
+            <interceptor name="privInterceptor" class="com.wami.project.hrsystem.core.struts2.interceptors.PrivInterceptor"/>
+            <interceptor-stack name="normalStack">
+                <interceptor-ref name="privInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="normalStack"/>
+        <action name="core_login" method="loginIdentify" class="loginActionImpl">
+            <result type="dispatcher" name="lackpriv">login.jsp</result>
+            <result name="success">/test/login-success.jsp</result>
+            <result name="login">/test/login-success.jsp</result>
+        </action>
+    </package>
 </struts>

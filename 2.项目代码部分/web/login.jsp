@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: wammi
@@ -11,6 +12,10 @@
     <title>Login</title>
 </head>
 <body>
-
+<s:form action="core_login.action">
+    <s:textarea label="user"/>
+    <s:password label="passwd"/>
+    <s:submit/>
+</s:form>
 </body>
 </html>
