@@ -13,6 +13,7 @@
 <body>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <s:debug/>
 <s:form action="core_login">
     <s:param value="[0]['errorMessage']"/>
@@ -20,6 +21,9 @@
     <s:password label="passwd" name="passwd"/>
     <s:submit/>
 </s:form>
+=======
+
+>>>>>>> parent of c77bf88... 1.0-001-0
 =======
 
 >>>>>>> parent of c77bf88... 1.0-001-0

@@ -6,6 +6,7 @@
 <struts>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- 不进行扫描的包，用，分割，被包含的包，将不会被扫描成为action -->
     <!--<constant name="struts.convention.exclude.packages" value="com.sean.service" />-->
     <!-- 进行扫描的根包，该包会被扫描成action -->
@@ -66,6 +67,8 @@
             <result type="dispatcher" name="lackpriv">login.jsp</result>
         </action>
     </package>
+=======
+>>>>>>> parent of c77bf88... 1.0-001-0
 =======
 >>>>>>> parent of c77bf88... 1.0-001-0
 =======
