@@ -64,6 +64,7 @@ public class LoginDaoImpl extends DaoImpl<PrivUsersEntity> implements LoginDao {
 <<<<<<< HEAD
 <<<<<<< HEAD
                 .setParameter("USERNAME", usersEntity.getUname()).uniqueResult();
+<<<<<<< HEAD
         System.out.println(passwd);
         System.out.println(usersEntity.getUpwd());
         return passwd != null && Md5Handler.getSaltverifyMD5(usersEntity.getUpwd(), passwd);
@@ -82,5 +83,8 @@ public class LoginDaoImpl extends DaoImpl<PrivUsersEntity> implements LoginDao {
                 .setParameter("USERPASSWD", usersEntity.getUpwd())
                 .uniqueResult() > 0;
 >>>>>>> parent of c77bf88... 1.0-001-0
+=======
+        return Md5Handler.getSaltverifyMD5(usersEntity.getUpwd(), passwd);
+>>>>>>> parent of 2d692c5... 1.0-001-1
     }
 }

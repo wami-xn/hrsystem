@@ -63,13 +63,13 @@ public class PrivilegeDaoImpl extends DaoImpl<PrivGroupDEntity> implements Privi
 <<<<<<< HEAD
 <<<<<<< HEAD
     @Override
-    public Map<String, Long> getPrivMap(){
-        String hql = "SELECT t.interfaceCode, t.privilegeId FROM PrivInterfaceEntity t";
+    public Map<Long, String> getPrivMap(){
+        String hql = "SELECT t.privilegeId, t.interfaceCode FROM PrivInterfaceEntity t";
         Iterator iterator = getSession().createQuery(hql).iterate();
-        Map<String, Long> privMap = new HashMap<>();
+        Map<Long, String> privMap = new HashMap<>();
         while (iterator.hasNext()){
             Object[] o = (Object[])iterator.next();
-            privMap.put((String)o[0], (Long) o[1]);
+            privMap.put((Long)o[0], (String) o[1]);
         }
         return privMap;
     }

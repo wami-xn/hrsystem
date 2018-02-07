@@ -1,6 +1,8 @@
 package com.wami.project.hrsystem.core.action.impls;
 
-import com.wami.project.hrsystem.core.action.abstractaction.AbstractActionImpl;
+import com.wami.project.hrsystem.core.action.abstractaction.AbstractNormalActionImpl;
+import com.wami.project.hrsystem.core.action.interfaces.AbstractAction;
+import com.wami.project.hrsystem.core.action.interfaces.LoginAction;
 import com.wami.project.hrsystem.core.dao.interfaces.LoginDao;
 import com.wami.project.hrsystem.core.dao.interfaces.PrivilegeDao;
 import com.wami.project.hrsystem.core.enties.privs.PrivUsersEntity;
@@ -13,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 @Service
-public class LoginActionImpl extends AbstractActionImpl {
+public class LoginActionImpl extends AbstractNormalActionImpl<PrivUsersEntity> implements LoginAction,AbstractAction<PrivUsersEntity> {
     @Autowired
     public void setLoginDao(LoginDao loginDao) {
         this.loginDao = loginDao;
@@ -35,26 +37,20 @@ public class LoginActionImpl extends AbstractActionImpl {
 
     private PrivilegeDao privilegeDao;
 
-    public final String loginIdentify() throws Exception {
-        super.execute();
+    @Override
+    public final String loginIdentify() {
         PrivUsersEntity privUsersEntity = new PrivUsersEntity();
-        privUsersEntity.setUname(getUser());
-        privUsersEntity.setUpwd(getPasswd());
-        request.getSession();
-        request.getSession().setAttribute("user", privUsersEntity.getUname());
-        System.out.println(privUsersEntity.getUname());
-        System.out.println(privUsersEntity.getUpwd());
+        privUsersEntity.setUname(getRequest().getParameter("uname"));
+        privUsersEntity.setUpwd(getRequest().getParameter("passwd"));
+        getRequest().getSession().setAttribute("user", privUsersEntity.getUname());
         if(getLoginDao().check(privUsersEntity)){
             Random random = new Random();
-            String gession_id = new Date().toString().replace(" ","") + privUsersEntity.getUname() + random.nextInt(99999999);
-            Cookie cookie;
-            request.getSession().setAttribute("Jsession_id",gession_id);
+            String gession_id = new Date().toString() + privUsersEntity.getUname() + random.nextInt(99999999);
+            Cookie cookie = new Cookie("Jsession_id",gession_id);
+            getResponse().addCookie(cookie);
             String identifier = Md5Handler.getSaltMD5(gession_id);
             cookie = new Cookie("idtf", identifier);
-            response.addCookie(cookie);
-            List<Long> privileges =  this.getPrivilegeDao().getAllPrivilege(privUsersEntity);
-            request.getSession().setAttribute("privileges", privileges);
-            setOtherSessionParameter();
+            getResponse().addCookie(cookie);
             this.setSessionParmeters(privUsersEntity);
             this.setOtherCookies();
             return "success";
@@ -63,7 +59,9 @@ public class LoginActionImpl extends AbstractActionImpl {
         }
     }
     private void setSessionParmeters(PrivUsersEntity privUsersEntity){
-
+        List<Long> privileges =  this.getPrivilegeDao().getAllPrivilege(privUsersEntity);
+        getRequest().getSession().setAttribute("privileges", privileges);
+        setOtherSessionParameter();
     }
     @SuppressWarnings("WeakerAccess")
     protected void setOtherCookies(){
@@ -72,22 +70,5 @@ public class LoginActionImpl extends AbstractActionImpl {
     @SuppressWarnings("WeakerAccess")
     protected void setOtherSessionParameter(){
 
-    }
-    private String user;
-    private String passwd;
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPasswd() {
-        return passwd;
-    }
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
     }
 }

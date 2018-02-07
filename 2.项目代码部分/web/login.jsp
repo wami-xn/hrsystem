@@ -14,11 +14,17 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <s:debug/>
 <s:form action="core_login">
     <s:param value="[0]['errorMessage']"/>
     <s:textfield label="user" name="user"/>
     <s:password label="passwd" name="passwd"/>
+=======
+<s:form action="core_login.action">
+    <s:textarea label="user"/>
+    <s:password label="passwd"/>
+>>>>>>> parent of 2d692c5... 1.0-001-1
     <s:submit/>
 </s:form>
 =======
