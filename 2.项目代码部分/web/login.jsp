@@ -13,8 +13,8 @@
 </head>
 <body>
 <s:debug/>
-<s:form action="core_login.action">
-    <s:param name="error" value="[0]['errorMessage']"/>
+<s:form action="core_login">
+    <s:param value="[0]['errorMessage']"/>
     <s:textfield label="user" name="user"/>
     <s:password label="passwd" name="passwd"/>
     <s:submit/>
