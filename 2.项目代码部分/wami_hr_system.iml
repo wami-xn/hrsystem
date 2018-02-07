@@ -19,6 +19,9 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/resources" />
+        </sourceRoots>
       </configuration>
       <facet type="Struts2" name="Struts 2">
         <configuration>
