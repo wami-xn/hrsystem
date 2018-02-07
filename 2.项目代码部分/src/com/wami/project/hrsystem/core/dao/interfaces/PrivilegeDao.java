@@ -12,7 +12,10 @@ public interface PrivilegeDao extends AbstractDao<PrivGroupDEntity> {
      public List<PrivModelEntity> getAccessAbleModel(List<Long> privileges);
      public List<PrivInterfaceEntity> getAccessAbleInterface(List<Long> privileges);
 <<<<<<< HEAD
+<<<<<<< HEAD
      public Map<String, Long> getPrivMap();
+=======
+>>>>>>> parent of c77bf88... 1.0-001-0
 =======
 >>>>>>> parent of c77bf88... 1.0-001-0
 }
