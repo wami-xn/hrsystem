@@ -7,6 +7,15 @@
         <element id="directory" name="classes">
           <element id="module-output" name="wami_hr_system" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="dom4j-2.1.0" />
+          <element id="library" level="project" name="c3p0-0.9.5.2" />
+          <element id="library" level="project" name="struts2-2.5.14.1" />
+          <element id="library" level="project" name="Spring-4.3.14.RELEASE" />
+          <element id="library" level="project" name="Hibernate 5.2.12-5.2.12" />
+          <element id="library" level="project" name="log4j" />
+          <element id="library" level="project" name="struts2-spring-plugin-2.5.14.1" />
+        </element>
       </element>
     </root>
   </artifact>

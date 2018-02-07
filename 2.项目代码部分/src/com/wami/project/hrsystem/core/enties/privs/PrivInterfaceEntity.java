@@ -11,6 +11,17 @@ public class PrivInterfaceEntity {
     private Short modelId;
     private String interfaceName;
     private String enableFlag;
+    @Basic
+    @Column(name = "INTERFACE_CODE")
+    public String getInterfaceCode() {
+        return interfaceCode;
+    }
+
+    public void setInterfaceCode(String interfaceCode) {
+        this.interfaceCode = interfaceCode;
+    }
+
+    private String interfaceCode;
 
     @Id
     @Column(name = "INTERFACE_ID")
@@ -78,5 +89,17 @@ public class PrivInterfaceEntity {
     public int hashCode() {
 
         return Objects.hash(interfaceId, privilegeId, modelId, interfaceName, enableFlag);
+    }
+
+    @Override
+    public String toString() {
+        return "PrivInterfaceEntity{" +
+                "interfaceId=" + interfaceId +
+                ", privilegeId=" + privilegeId +
+                ", modelId=" + modelId +
+                ", interfaceName='" + interfaceName + '\'' +
+                ", enableFlag='" + enableFlag + '\'' +
+                ", interfaceCode='" + interfaceCode + '\'' +
+                '}';
     }
 }

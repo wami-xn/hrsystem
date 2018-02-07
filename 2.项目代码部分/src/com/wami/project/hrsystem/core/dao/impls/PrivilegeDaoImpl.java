@@ -1,6 +1,6 @@
 package com.wami.project.hrsystem.core.dao.impls;
 
-import com.wami.project.hrsystem.core.Utils.StringHandler;
+import com.wami.project.hrsystem.core.utils.StringHandler;
 import com.wami.project.hrsystem.core.dao.impls.abstractimpls.DaoImpl;
 import com.wami.project.hrsystem.core.dao.interfaces.PrivilegeDao;
 import com.wami.project.hrsystem.core.enties.privs.PrivGroupDEntity;
@@ -11,9 +11,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Repository(value = "PrivilegeDao")
 public class PrivilegeDaoImpl extends DaoImpl<PrivGroupDEntity> implements PrivilegeDao{
@@ -59,27 +57,15 @@ public class PrivilegeDaoImpl extends DaoImpl<PrivGroupDEntity> implements Privi
         String hql = "FROM PrivInterfaceEntity i WHERE i.privilegeId IN (" + StringHandler.Handle(privileges) + ")";
         return getSession().createQuery(hql, PrivInterfaceEntity.class).list();
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     @Override
-    public Map<Long, String> getPrivMap(){
-        String hql = "SELECT t.privilegeId, t.interfaceCode FROM PrivInterfaceEntity t";
+    public Map<String, Long> getPrivMap(){
+        String hql = "SELECT t.interfaceCode, t.privilegeId FROM PrivInterfaceEntity t";
         Iterator iterator = getSession().createQuery(hql).iterate();
-        Map<Long, String> privMap = new HashMap<>();
+        Map<String, Long> privMap = new HashMap<>();
         while (iterator.hasNext()){
             Object[] o = (Object[])iterator.next();
-            privMap.put((Long)o[0], (String) o[1]);
+            privMap.put((String)o[0], (Long) o[1]);
         }
         return privMap;
     }
-=======
->>>>>>> parent of c77bf88... 1.0-001-0
-=======
->>>>>>> parent of c77bf88... 1.0-001-0
-=======
->>>>>>> parent of c77bf88... 1.0-001-0
-=======
->>>>>>> parent of c77bf88... 1.0-001-0
 }

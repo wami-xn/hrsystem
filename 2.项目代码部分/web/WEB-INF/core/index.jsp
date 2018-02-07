@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: wammi
@@ -11,6 +12,18 @@
     <title>index</title>
 </head>
 <body>
+<body>
+<%--<s:iterator value="[0]['errormessage']" var="map">
+    <s:iterator value="map" var="button"/>
+</s:iterator>--%>
+<s:iterator var="temp" value="privNodeTree">
+    <s:property value='key["midelName"]'/>
+    <s:iterator value="value" var="id" >
+        <s:property value="#id.interfaceName"/>
+    </s:iterator>
+</s:iterator>
+<s:debug/>
 
+</body>
 </body>
 </html>
