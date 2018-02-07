@@ -60,7 +60,7 @@
             <result name="login" type="dispatcher">login.jsp</result>
         </action>
         <action name="core_index" method="execute" class="coreIndexActionImpl">
-            <result name="success">test/login-success.jsp</result>
+            <result name="success">/WEB-INF/core/index.jsp</result>
             <result type="dispatcher" name="lackpriv">login.jsp</result>
         </action>
     </package>
