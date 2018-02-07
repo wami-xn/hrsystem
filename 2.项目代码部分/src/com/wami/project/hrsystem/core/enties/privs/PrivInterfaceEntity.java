@@ -11,17 +11,6 @@ public class PrivInterfaceEntity {
     private Short modelId;
     private String interfaceName;
     private String enableFlag;
-    @Basic
-    @Column(name = "INTERFACE_CODE")
-    public String getInterfaceCode() {
-        return interfaceCode;
-    }
-
-    public void setInterfaceCode(String interfaceCode) {
-        this.interfaceCode = interfaceCode;
-    }
-
-    private String interfaceCode;
 
     @Id
     @Column(name = "INTERFACE_ID")

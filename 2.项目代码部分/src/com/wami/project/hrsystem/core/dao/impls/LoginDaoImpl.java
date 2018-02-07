@@ -5,7 +5,6 @@ import com.wami.project.hrsystem.core.dao.exceptions.UserNotFoundException;
 import com.wami.project.hrsystem.core.dao.impls.abstractimpls.DaoImpl;
 import com.wami.project.hrsystem.core.dao.interfaces.LoginDao;
 import com.wami.project.hrsystem.core.enties.privs.PrivUsersEntity;
-import com.wami.project.hrsystem.core.utils.Md5Handler;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -47,22 +46,29 @@ public class LoginDaoImpl extends DaoImpl<PrivUsersEntity> implements LoginDao {
     }
 
     private PrivUsersEntity getPrivUsersEntity(PrivUsersEntity usersEntity) {
-        String hql = "FROM PrivUsersEntity t WHERE t.uname = :USERNAME";
+        String hql = "FROM PrivUsersEntity t WHERE t.uname = :USERNAME AND t.upwd = :USERPASSWD";
         return getSession()
                 .createQuery(hql, PrivUsersEntity.class)
                 .setParameter("USERNAME", usersEntity.getUname())
+                .setParameter("USERPASSWD", usersEntity.getUpwd())
                 .uniqueResult();
     }
 
     @Override
     public Boolean check(PrivUsersEntity usersEntity) {
-        String hql = "SELECT t.upwd FROM PrivUsersEntity t WHERE t.uname = :USERNAME";
+        String hql = "SELECT count(*) FROM PrivUsersEntity t WHERE t.uname = :USERNAME AND t.upwd = :USERPASSWD";
 //        System.out.println((Long)getSession().createQuery(hql).setParameter("USERNAME", usersEntity.getUname()).setParameter("USERPASSWD", usersEntity.getUpwd()).uniqueResult());
-        String passwd = (String) getSession()
+        return (Long)getSession()
                 .createQuery(hql)
+<<<<<<< HEAD
                 .setParameter("USERNAME", usersEntity.getUname()).uniqueResult();
         System.out.println(passwd);
         System.out.println(usersEntity.getUpwd());
         return passwd != null && Md5Handler.getSaltverifyMD5(usersEntity.getUpwd(), passwd);
+=======
+                .setParameter("USERNAME", usersEntity.getUname())
+                .setParameter("USERPASSWD", usersEntity.getUpwd())
+                .uniqueResult() > 0;
+>>>>>>> parent of c77bf88... 1.0-001-0
     }
 }
