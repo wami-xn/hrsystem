@@ -62,6 +62,7 @@ public class PrivilegeDaoImpl extends DaoImpl<PrivGroupDEntity> implements Privi
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Override
     public Map<Long, String> getPrivMap(){
         String hql = "SELECT t.privilegeId, t.interfaceCode FROM PrivInterfaceEntity t";
@@ -73,6 +74,8 @@ public class PrivilegeDaoImpl extends DaoImpl<PrivGroupDEntity> implements Privi
         }
         return privMap;
     }
+=======
+>>>>>>> parent of c77bf88... 1.0-001-0
 =======
 >>>>>>> parent of c77bf88... 1.0-001-0
 =======

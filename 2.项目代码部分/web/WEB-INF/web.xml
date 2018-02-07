@@ -26,6 +26,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!--<listener>
         <listener-class> com.test. listener.WebContextListener</listener-class>
     </listener>-->
@@ -40,4 +41,6 @@
         <listener-class> com.test. listener.WebContextListener</listener-class>
     </listener>
 >>>>>>> parent of 2d692c5... 1.0-001-1
+=======
+>>>>>>> parent of c77bf88... 1.0-001-0
 </web-app>

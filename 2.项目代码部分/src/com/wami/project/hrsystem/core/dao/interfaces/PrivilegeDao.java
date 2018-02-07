@@ -15,6 +15,7 @@ public interface PrivilegeDao extends AbstractDao<PrivGroupDEntity> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
      public Map<String, Long> getPrivMap();
 =======
 >>>>>>> parent of c77bf88... 1.0-001-0
@@ -25,4 +26,6 @@ public interface PrivilegeDao extends AbstractDao<PrivGroupDEntity> {
 =======
      public Map<Long, String> getPrivMap();
 >>>>>>> parent of 2d692c5... 1.0-001-1
+=======
+>>>>>>> parent of c77bf88... 1.0-001-0
 }
