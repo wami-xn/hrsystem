@@ -27,7 +27,9 @@
     <package name="default" namespace="/" extends="struts-default">
         <interceptors>
             <interceptor name="privInterceptor" class="com.wami.project.hrsystem.core.struts2.interceptors.PrivInterceptor"/>
+            <interceptor name="logInterceptor" class="com.wami.project.hrsystem.core.struts2.interceptors.LogInterceptor"/>
             <interceptor-stack name="normalStack">
+                <interceptor-ref name="logInterceptor"/>
                 <interceptor-ref name="exception"/>
                 <interceptor-ref name="alias"/>
                 <interceptor-ref name="servletConfig"/>
