@@ -10,20 +10,53 @@
 <html>
 <head>
     <title>index</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/source/css/core/index.css">
 </head>
 <body>
-<body>
-<%--<s:iterator value="[0]['errormessage']" var="map">
-    <s:iterator value="map" var="button"/>
-</s:iterator>--%>
-<s:iterator var="temp" value="privNodeTree">
-    <s:property value='key["midelName"]'/>
-    <s:iterator value="value" var="id" >
-        <s:property value="#id.interfaceName"/>
-    </s:iterator>
-</s:iterator>
-<s:debug/>
+<div class="head">
+    <div class="headleft">
 
-</body>
+    </div>
+    <div class="headmiddle">
+        <div class>
+
+        </div>
+        <div class>
+
+        </div>
+    </div>
+    <div class="headright">
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>
+<div class="area">
+    <div class="leftarea">
+        <s:iterator var="temp" value="privNodeTree">
+            <s:property value='key["midelName"]'/>
+            <s:iterator value="value" var="id" >
+                <s:property value="#id.interfaceName"/>
+            </s:iterator>
+        </s:iterator>
+        <s:debug/>
+    </div>
+    <div class="rightarea">
+        <div>
+
+        </div>
+        <div class="bottom">
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="source/css/core/login.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/source/css/core/login.css">
 </head>
 <body>
 <%--<s:debug/>--%>
