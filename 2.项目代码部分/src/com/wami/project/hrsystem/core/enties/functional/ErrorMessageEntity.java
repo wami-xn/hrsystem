@@ -5,7 +5,6 @@ public class ErrorMessageEntity {
     }
 
     public ErrorMessageEntity(String errorMessage) {
-
         this.errorMessage = errorMessage;
     }
 

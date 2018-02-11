@@ -1,0 +1,55 @@
+定时消息任务提醒的工作方式一：
+A表
+flow_id	number(18)
+title	varchar2(32)
+detail	varchar2(200)
+icon	varchar2(16)
+botton	integer
+form	integer
+describe	varchar2(100)
+enable_flag	char(6)
+start_time	date
+end_time	date
+frequency	varchar2(50)
+B表
+flow_id	number(18)
+title	varchar2(32)
+detail	varchar2(200)
+icon	varchar2(16)
+botton	integer
+form	integer
+describe	varchar2(100)
+suppress_date	date
+once_flag	varchar2(2)
+enable_flag	varchar2(2)
+
+需要将设置好的数据，在数据库中设置定时任务，定时将
+从A表中插入B表中：once_flag = 'T', enable_flag = 'T', suppress_date = frequency转换成的时间参数
+
+定时消息任务提醒的工作方式二：
+A表
+flow_id	number(18)
+title	varchar2(32)
+detail	varchar2(200)
+icon	varchar2(16)
+botton	integer
+form	integer
+describe	varchar2(100)
+enable_flag	char(6)
+start_time	date
+end_time	date
+frequency	varchar2(50)
+next_time	date
+B表
+flow_id	number(18)
+title	varchar2(32)
+detail	varchar2(200)
+icon	varchar2(16)
+botton	integer
+form	integer
+describe	varchar2(100)
+suppress_date	date
+once_flag	varchar2(2)
+enable_flag	varchar2(2)	
+
+在查询时添加next_time参数，下一次自动查询参数超过next_time之后，发出提醒，刷新参数

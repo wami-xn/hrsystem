@@ -43,6 +43,7 @@ public class PrivInterceptor extends AbstractInterceptor {
             if(!flag){
                 ErrorMessageEntity error = new ErrorMessageEntity("请先登陆，再进行其他操作。");
                 valueStack.push(error);
+                return "lackpriv";
             }
             if(privMap == null) {
                 synchronized (this) {

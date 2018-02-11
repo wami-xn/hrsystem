@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>$Title$</title>
-    <script type="javascript" resource=""
+    <script type="javascript" resource=""></script>
 </head>
 <body>
 $END$

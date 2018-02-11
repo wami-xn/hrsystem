@@ -10,10 +10,12 @@ import com.wami.project.hrsystem.core.enties.privs.PrivUsersEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
 @Repository(value = "PrivilegeDao")
+@Transactional
 public class PrivilegeDaoImpl extends DaoImpl<PrivGroupDEntity> implements PrivilegeDao{
     @Autowired
     public PrivilegeDaoImpl(SessionFactory sessionFactory) {
@@ -48,18 +50,18 @@ public class PrivilegeDaoImpl extends DaoImpl<PrivGroupDEntity> implements Privi
 
     @Override
     public List<PrivModelEntity> getAccessAbleModel(List<Long> privileges) {
-        String hql = "FROM PrivModelEntity m WHERE m.privilegeId IN (" + StringHandler.Handle(privileges) + ")";
+        String hql = "FROM PrivModelEntity m WHERE m.enableFlag = 'Y'and m.privilegeId IN (" + StringHandler.Handle(privileges) + ")";
         return getSession().createQuery(hql, PrivModelEntity.class).list();
     }
 
     @Override
     public List<PrivInterfaceEntity> getAccessAbleInterface(List<Long> privileges) {
-        String hql = "FROM PrivInterfaceEntity i WHERE i.privilegeId IN (" + StringHandler.Handle(privileges) + ")";
+        String hql = "FROM PrivInterfaceEntity i WHERE i.enableFlag = 'Y' and i.privilegeId IN (" + StringHandler.Handle(privileges) + ")";
         return getSession().createQuery(hql, PrivInterfaceEntity.class).list();
     }
     @Override
     public Map<String, Long> getPrivMap(){
-        String hql = "SELECT t.interfaceCode, t.privilegeId FROM PrivInterfaceEntity t";
+        String hql = "SELECT t.interfaceCode, t.privilegeId FROM PrivInterfaceEntity t WHERE t.enableFlag='Y'";
         Iterator iterator = getSession().createQuery(hql).iterate();
         Map<String, Long> privMap = new HashMap<>();
         while (iterator.hasNext()){

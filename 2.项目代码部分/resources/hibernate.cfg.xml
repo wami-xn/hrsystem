@@ -8,6 +8,8 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="connection.url">jdbc:oracle:thin:@192.168.1.110:1521:ORACLE</property>
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
         <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivUsersEntity"/>
         <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivGroupDEntity"/>
         <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivGroupMEntity"/>
@@ -16,5 +18,8 @@
         <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivModelEntity"/>
         <mapping class="com.wami.project.hrsystem.core.enties.privs.PrivPrivLEntity"/>
         <mapping class="com.wami.project.hrsystem.core.enties.message.MsgMessageEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.message.MsgMessageMappingEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.message.MsgMessageMappingEntity"/>
+        <mapping class="com.wami.project.hrsystem.core.enties.message.MsgMessageSystemEntity"/>
     </session-factory>
 </hibernate-configuration>

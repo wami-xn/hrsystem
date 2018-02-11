@@ -24,6 +24,7 @@
             <!--<tx:method name="purchase" propagation="REQUIRES_NEW"/>-->
         </tx:attributes>
     </tx:advice>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
     <aop:config>
         <aop:pointcut id="txPointcut" expression="execution(* com.wami.project.hrsystem.core.dao.impls.actualimpls.LoginDaoImpl.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>

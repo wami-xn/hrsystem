@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/source/css/core/login.css">
 </head>
 <body>
+<s:debug/>
 <%--<s:debug/>--%>
 <div class="login_box">
     <div class="login_l_img"><img src="${pageContext.request.contextPath}/source/image/login-img.png"></div>

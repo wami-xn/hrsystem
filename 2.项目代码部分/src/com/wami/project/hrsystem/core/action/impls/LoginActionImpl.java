@@ -3,6 +3,7 @@ package com.wami.project.hrsystem.core.action.impls;
 import com.wami.project.hrsystem.core.action.abstractaction.AbstractActionImpl;
 import com.wami.project.hrsystem.core.dao.interfaces.LoginDao;
 import com.wami.project.hrsystem.core.dao.interfaces.PrivilegeDao;
+import com.wami.project.hrsystem.core.enties.functional.ErrorMessageEntity;
 import com.wami.project.hrsystem.core.enties.privs.PrivInterfaceEntity;
 import com.wami.project.hrsystem.core.enties.privs.PrivModelEntity;
 import com.wami.project.hrsystem.core.enties.privs.PrivUsersEntity;
@@ -42,7 +43,7 @@ public class LoginActionImpl extends AbstractActionImpl {
         privUsersEntity.setUname(getUser());
         privUsersEntity.setUpwd(getPasswd());
         request.getSession();
-        request.getSession().setAttribute("user", privUsersEntity.getUname());
+        request.getSession().setAttribute("user", privUsersEntity);
         System.out.println(privUsersEntity.getUname());
         System.out.println(privUsersEntity.getUpwd());
         if(getLoginDao().check(privUsersEntity)){
@@ -60,6 +61,8 @@ public class LoginActionImpl extends AbstractActionImpl {
             this.setOtherCookies();
             return "success";
         }else {
+            ErrorMessageEntity error = new ErrorMessageEntity("用户名或密码错误，请重新登陆！");
+            valueStack.push(error);
             return "login";
         }
     }

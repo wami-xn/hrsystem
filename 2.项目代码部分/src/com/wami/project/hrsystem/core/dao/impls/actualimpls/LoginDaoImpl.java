@@ -9,8 +9,10 @@ import com.wami.project.hrsystem.core.utils.Md5Handler;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository(value = "LoginDao")
+@Transactional
 public class LoginDaoImpl extends DaoImpl<PrivUsersEntity> implements LoginDao {
     @Autowired
     public LoginDaoImpl(SessionFactory sessionFactory) {
