@@ -61,22 +61,50 @@ public class FrequencyHandler {
             }
             stringMap.put(temp[0], list);
         }
-        if( stringMap.get("Y") != null){
-            List<Integer> stringList = stringMap.get("y");
-            stringList.sort(Integer::compareTo);
+        List<Integer> years;
+        if( stringMap.get("y") != null){
+            List<Integer> integerList = stringMap.get("y");
             Integer int1 = TimeClassHandler.getYear(timestamp);
-            for (Integer integer: stringList){
-                if(integer >= int1){
-
-                }
-            }
+            years = getSmallestOverStd(integerList, int1, 2);
+        }else {
+            Integer int1 = TimeClassHandler.getYear(timestamp);
+            years = Arrays.asList(int1, int1+1);
+        }
+        List<Integer> months;
+        if( stringMap.get("m") != null){
+            List<Integer> integerList = stringMap.get("m");
+            Integer int1 = TimeClassHandler.getYear(timestamp);
+            months = getSmallestOverStd(integerList, int1, 2);
+        }else {
+            Integer int1 = TimeClassHandler.getYear(timestamp);
+            months = Arrays.asList(int1, int1+1);
+        }
+        List<Integer> days;
+        if( stringMap.get("d") != null){
+            List<Integer> integerList = stringMap.get("d");
+            Integer int1 = TimeClassHandler.getYear(timestamp);
+            days = getSmallestOverStd(integerList, int1, 2);
+        }else {
+            Integer int1 = TimeClassHandler.getYear(timestamp);
+            days = Arrays.asList(int1, int1+1);
         }
         return new Timestamp(time);
     }
     private static Timestamp singleMapping(String frequency, Timestamp timestamp){
         return null;
     }
-    private String getSmallest(List<String> list){
-        return null;
+    private static List<Integer> getSmallestOverStd(List<Integer> list, Integer std, int number){
+        list.sort(Integer::compareTo);
+        List<Integer> integers = new ArrayList<>();
+        int flag = 0;
+        for (Integer aList : list) {
+            if (flag < number) {
+                if (aList >= std) {
+                    integers.add(aList);
+                    flag++;
+                }
+            }
+        }
+        return integers;
     }
 }
